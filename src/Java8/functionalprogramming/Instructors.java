@@ -1,6 +1,5 @@
-package Java8.Consumers;
+package Java8.functionalprogramming;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;

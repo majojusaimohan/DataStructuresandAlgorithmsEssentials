@@ -1,4 +1,4 @@
-package Java8.Consumers;
+package Java8.functionalprogramming;
 
 import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;

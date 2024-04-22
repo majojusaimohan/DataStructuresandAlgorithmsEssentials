@@ -1,6 +1,5 @@
-package Java8.Consumers;
+package Java8.functionalprogramming;
 
-import java.util.concurrent.CompletionService;
 import java.util.function.Consumer;
 
 public class ConsumerExample {
