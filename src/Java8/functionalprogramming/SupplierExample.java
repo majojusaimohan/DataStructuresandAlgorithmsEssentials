@@ -1,5 +1,6 @@
 package Java8.functionalprogramming;
 
+import java.util.HashSet;
 import java.util.function.Supplier;
 
 public class SupplierExample {
@@ -8,5 +9,6 @@ public class SupplierExample {
         Supplier<Integer> integerSupplier =()->(int)(Math.random()*1000);
         System.out.println(integerSupplier.get());
         System.out.println(integerSupplier.get());
+
     }
 }
