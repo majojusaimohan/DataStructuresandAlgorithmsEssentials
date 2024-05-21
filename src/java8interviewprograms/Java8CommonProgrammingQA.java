@@ -27,11 +27,15 @@ public class Java8CommonProgrammingQA {
     // find students whose rank is between 50 and 100;
         List<Student> students = studentList.stream().filter(student -> student.getRank() >= 50 && student.getRank() <= 100).collect(Collectors.toList());
         System.out.println(students);
-
+        System.out.println("----------------------------------------------------------------------------");
         // find the students who stay in karnataka and sort by their name
         List<Student> karnatakastudents = studentList.stream().filter(student -> student.getCity().equals("Karnataka")).sorted((o1, o2) -> o1.getFirstName().compareTo(o2.getFirstName())).collect(Collectors.toList());
        // List<Student> karnatakastudents1 = studentList.stream().filter(student -> student.getCity().equals("Karnataka")).sorted(Comparator.comparing(Student::getFirstName,Comparator.reverseOrder())).collect(Collectors.toList());
         System.out.println(karnatakastudents);
+        System.out.println("----------------------------------------------------------------------------");
+        // finda all unique depararments
+        List<String> distinctdepartments =studentList.stream().map(Student::getDept).distinct().collect(Collectors.toList());
+        System.out.println(distinctdepartments);
 
 
     }
