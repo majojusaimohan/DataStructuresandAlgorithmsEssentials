@@ -1,8 +1,7 @@
 package java8interviewprograms;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,6 +35,32 @@ public class Java8CommonProgrammingQA {
         // finda all unique depararments
         List<String> distinctdepartments =studentList.stream().map(Student::getDept).distinct().collect(Collectors.toList());
         System.out.println(distinctdepartments);
+        System.out.println("----------------------------------------------------------------------------");
+        //find all the contact numbers
+        List<String> contactnumbers = studentList.stream().flatMap(student -> student.getContacts().stream()).distinct().collect(Collectors.toList());
+        System.out.println(contactnumbers);
+        System.out.println("----------------------------------------------------------------------------");
+        // find the department who is having highest number of students
+
+        Map.Entry<String, Long> Departmentgroup = studentList.stream().collect(Collectors.groupingBy(Student::getDept, Collectors.counting()))
+                .entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        System.out.println(Departmentgroup);
+        System.out.println("----------------------------------------------------------------------------");
+        //find average age of male and female students
+
+        Map<String, Double> Averageage = studentList.stream().collect(Collectors.groupingBy(Student::getGender, Collectors.averagingInt(Student::getAge)));
+        System.out.println(Averageage);
+
+        System.out.println("----------------------------------------------------------------------------");
+
+        Map<String, Optional<Student>> collect = studentList.stream().collect(Collectors.groupingBy(Student::getDept, Collectors.minBy(Comparator.comparing(Student::getRank))));
+        System.out.println(collect);
+
+        // find the student who has second rank
+
+        System.out.println("----------------------------------------------------------------------------");
+        Optional<Student> secondstudent = studentList.stream().sorted(Comparator.comparing(Student::getRank)).skip(1).findFirst();
+        System.out.println(secondstudent);
 
 
     }
